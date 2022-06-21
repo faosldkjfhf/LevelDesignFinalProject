@@ -22,11 +22,5 @@ public class PlayerController : MonoBehaviour
                 player.SetDestination(hitPoint.point);
             }
         }
-            // if (player.velocity != Vector3.zero) {
-            //   playerAnimator.SetBool("isWalking", true);
-            // }
-            // else if (player.velocity == Vector3.zero) {
-            //     playerAnimator.SetBool("isWalking", false);
-            // }
     }
 }
