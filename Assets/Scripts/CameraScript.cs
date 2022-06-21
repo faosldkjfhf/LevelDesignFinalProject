@@ -16,10 +16,14 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         if (_selection != null) {
-            var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
-            _selection = null;
-        }   
+            if (_selection.CompareTag("Wall")) {
+                var selectionRenderer = _selection.GetComponent<Renderer>();
+                selectionRenderer.material = defaultMaterial;
+                _selection = null;
+            }
+
+        }
+   
 
         Ray ray = new Ray(Camera.main.transform.position, player.transform.position - Camera.main.transform.position);
         Debug.Log(ray);
@@ -35,6 +39,9 @@ public class CameraScript : MonoBehaviour
                     selectionRenderer.material = transparentMaterial;
                     Debug.Log("material change");
                 }   
+            }
+            else if (selection.CompareTag("Ground")) {
+                Debug.Log("not wall");
             }
             _selection = selection;
         }
